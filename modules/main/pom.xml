@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.ilya.coding</groupId>
         <artifactId>various-problems</artifactId>
-        <version>20151102022013-SNAPSHOT</version>
+        <version>20151102035817</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
