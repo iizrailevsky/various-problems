@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.ilya.coding</groupId>
         <artifactId>various-problems</artifactId>
-        <version>20151102022013</version>
+        <version>20151102035817</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
@@ -20,6 +20,13 @@
         <application.daemon.dependencies>runit</application.daemon.dependencies>
         <salutations>${env.USER}</salutations>
     </properties>
+
+    <dependencies>
+		<dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
