@@ -45,9 +45,6 @@
 #### Continue (Platform-independent)
 ```shell
 # install  java [ http://www.oracle.com/technetwork/java/javase/downloads ]
-# resources
-# CID policy page
-% open http://wiki.intuit.com/download/attachments/211286232/ContinuousIntegrationandDeliveryPolicy.pdf
 # [optional] SourceTree
 % open http://www.sourcetreeapp.com
 ```
@@ -55,7 +52,7 @@
 ##Checkout out project working copy
 
 ```shell
-% git clone https://icode.intuit.com/scm/dsiac/hello-world.git
+% git clone https://github.com/iizrailevsky/hello-world.git
 % cd hello-world
 # initialize git branches. set 1st (production) to master, 2nd (next release) develop, use defaults for rest
 % git flow init
@@ -91,7 +88,6 @@ working with branches provides significant benefits. as such, if you are interes
 ##Deploy
 
 #### Test your rpm on your machine's Linux VM:
-Start your Linux VM: [https://github.intuit.com/idea/chef/tree/develop/vagrant](https://github.intuit.com/idea/chef/tree/develop/vagrant)
 ```shell
 # copy your generated rpm to the share data directory
 cp modules/main/*.rpm ~/[ws]/data
