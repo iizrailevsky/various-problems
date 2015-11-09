@@ -107,11 +107,51 @@ public class JumpFurther {
         }
     }
 
+    /**
+     * Returns the farthest step that can be reached
+     * by Jiro if found, -1 otherwise
+     *
+     * @param N Number of actions
+     * @param badStep Number of the bad step
+     * @return farthest step that can be reached
+     * by Jiro if found, -1 otherwise
+     */
+    public int farthestIterative(int N, int badStep) {
+        // error checking
+        if (N <= 0 || badStep <= 0) {
+            return -1;
+        }
+
+        int stepsOpt1 = 0;
+        int stepsOpt2 = 1;
+        if (badStep == 1) {
+            stepsOpt2 = 0;
+        }
+
+        for (int i = 2; i <= N; i++) {
+            // not stepping on badStep?
+            if (stepsOpt1 + i != badStep) {
+                stepsOpt1 += i;
+            }
+            if (stepsOpt2 + i != badStep) {
+                stepsOpt2 += i;
+            }
+        }
+
+        return Math.max(stepsOpt1, stepsOpt2);
+
+    }
+
 
     public static void main(String[] args) {
-        int N = 25;
-        int badStep = 25;
-        System.out.println("Farthest step: " + new JumpFurther().farthest(N, badStep));
+        System.out.println("Farthest step: " + new JumpFurther().farthestIterative(3, 3));
+        System.out.println("Farthest step: " + new JumpFurther().farthestIterative(1, 0));
+        System.out.println("Farthest step: " + new JumpFurther().farthestIterative(2, 2));
+        System.out.println("Farthest step: " + new JumpFurther().farthestIterative(2, 1));
+        System.out.println("Farthest step: " + new JumpFurther().farthestIterative(10, 10));
+        System.out.println("Farthest step: " + new JumpFurther().farthestIterative(10, 9));
+        System.out.println("Farthest step: " + new JumpFurther().farthestIterative(1, 757065));
+        System.out.println("Farthest step: " + new JumpFurther().farthestIterative(1313, 5858));
     }
 
 
