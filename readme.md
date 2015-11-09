@@ -1,4 +1,9 @@
-# Various Coding Problems!
+# Various Coding Problems and My Solutions
+
+Most of the various problem solutions are located at: [ https://github.com/iizrailevsky/various-problems/tree/develop/modules/main/src/main/java/com/ilya/coding ]
+
+
+# Steps to build the project
 
 ##Prerequisites
 
