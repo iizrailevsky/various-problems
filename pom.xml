@@ -6,7 +6,7 @@
 
     <groupId>com.ilya.coding</groupId>
     <artifactId>various-problems</artifactId>
-    <version>20151109195438</version>
+    <version>20151109195438-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
 
