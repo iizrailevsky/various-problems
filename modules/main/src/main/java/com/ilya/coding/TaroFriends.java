@@ -154,6 +154,8 @@ public class TaroFriends {
         int[] positions = {-3, 0, 1};
         int X = 3;
         System.out.println("Winning smallest distance: " + new TaroFriends().getSmallestDistance(positions, X));
+        System.out.println("Winning smallest distance: " + new TaroFriends().getSmallestDistance(new int[] {4, 7, -7}, 5));
+        System.out.println("Winning smallest distance: " + new TaroFriends().getSmallestDistance(new int[] {0, 0, 0}, 4));
     }
 
 }
