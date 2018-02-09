@@ -15,7 +15,7 @@
 
     <properties>
         <application.main>com.ilya.coding.Main</application.main>
-        <application.dependencies>jdk-7u51</application.dependencies>
+        <application.dependencies>jdk-8u51</application.dependencies>
         <application.daemon.enable>false</application.daemon.enable>
         <application.daemon.dependencies>runit</application.daemon.dependencies>
         <salutations>${env.USER}</salutations>
@@ -77,6 +77,14 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
