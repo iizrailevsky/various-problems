@@ -10,11 +10,17 @@ public class TreePrintLeft {
 
     public static void main(String[] args) {
 
+        System.out.println("Iterative: " + getNodeValuesFromLeft(null));
+        System.out.println("Recursive: " + getNodeValuesFromLeftRecursive(null));
+
         Node one = new Node(1);
         Node two = new Node(2);
         Node three = new Node(3);
         Node four = new Node(4);
         Node five = new Node(5);
+
+        System.out.println("Iterative: " + getNodeValuesFromLeft(one));
+        System.out.println("Recursive: " + getNodeValuesFromLeftRecursive(one));
 
         one.setLeftChild(two);
         one.setRightChild(three);
