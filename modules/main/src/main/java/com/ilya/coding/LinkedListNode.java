@@ -35,4 +35,20 @@ public class LinkedListNode<T> {
         this.next = next;
     }
 
+    public void dumpLinkedList() {
+        System.out.print("List: " + value);
+        for (LinkedListNode<T> cur = next; cur != null; cur = cur.next()) {
+            System.out.print(" " + cur.getValue());
+        }
+        System.out.println("");
+    }
+
+    public int size() {
+        int size = 1;
+        for (LinkedListNode<T> cur = next; cur != null; cur = cur.next()) {
+            size++;
+        }
+        return size;
+    }
+
 }
