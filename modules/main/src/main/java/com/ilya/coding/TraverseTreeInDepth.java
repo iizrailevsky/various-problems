@@ -31,6 +31,6 @@ public class TraverseTreeInDepth {
     public static void traverseTreeInDepth(Node root, List<Node> result) {
         result.add(root);
         for (Node child : root.getChildren())
-        	traverseTreeInDepth(root, result);
+        	traverseTreeInDepth(child, result);
     }
 }

@@ -1,5 +1,7 @@
 package com.ilya.coding;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.HashSet;
@@ -25,19 +27,17 @@ public class MatrixPaths {
 
         // init variables
         Set<String> resultPaths = new HashSet<>();
-        // memorize which paths from each point have been already computed
-        boolean[][] mem = new boolean[N][M];
 
         // populate the paths set
-        getAllPathsRec(N, M, 0, 0, "", resultPaths, mem);
+        getAllPathsRec(N, M, 0, 0, "", resultPaths);
 
         return resultPaths;
     }
 
     // recursively populate the paths
-    private void getAllPathsRec(int N, int M, int x, int y, String prefix, Set<String> resultPaths, boolean[][] mem) {
+    private void getAllPathsRec(int N, int M, int x, int y, String prefix, Set<String> resultPaths) {
         // error checking
-        if (N <= 0 || M <= 0 || x >= N || y >= M || prefix == null || resultPaths == null || mem == null) {
+        if (N <= 0 || M <= 0 || x >= N || y >= M || prefix == null || resultPaths == null) {
             return;
         }
 
@@ -46,21 +46,16 @@ public class MatrixPaths {
             resultPaths.add(prefix);
         }
 
-        // calculate paths only if not calculated already
-        //if (!mem[x][y]) {
-            // try going right
-            if (x < N - 1) {
-                getAllPathsRec(N, M, x + 1, y, prefix + "R", resultPaths, mem);
-            }
+        // try going right
+        if (x < N - 1) {
+            getAllPathsRec(N, M, x + 1, y, prefix + "R", resultPaths);
+        }
 
-            // try going down
-            if (y < M - 1) {
-                getAllPathsRec(N, M, x, y + 1, prefix + "D", resultPaths, mem);
-            }
+        // try going down
+        if (y < M - 1) {
+            getAllPathsRec(N, M, x, y + 1, prefix + "D", resultPaths);
+        }
 
-            // set paths calculated for this point in the matrix
-            //mem[x][y] = true;
-        //}
     }
 
     public static void main(String[] args) {
@@ -69,7 +64,11 @@ public class MatrixPaths {
         int M = sc.nextInt();
 
         MatrixPaths mp = new MatrixPaths();
+        Instant first = Instant.now();
         Set<String> paths = mp.getAllPaths(N, M);
-        paths.stream().forEach(System.out::println);
+        Instant second = Instant.now();
+        System.out.println("Time: " + Duration.between(first, second).toMillis());
+        System.out.println("Total: " + paths.size());
+        paths.forEach(System.out::println);
     }
 }
