@@ -40,14 +40,14 @@ public class GridRegions {
     // if found, 0 otherwise
     public static int getSizeOfBiggestRegion(int[][] grid, int n, int m) {
         // error checking
-        if (grid == null || n <= 0 || m <= 0) {
+        if (grid == null || grid.length == 0 || n <= 0 || m <= 0) {
             return 0;
         }
 
         // init variables
         boolean[][] visited = new boolean[n][m];
         List<Coordinate> q = null;
-        Set<Coordinate> uniqueCoord = null;
+        int count = 0;
         int maxSize = 0;
 
         // go over grid, find 1 not yet visited
@@ -57,17 +57,17 @@ public class GridRegions {
                 // found region with 1 not visited? traverse
                 if (grid[i][j] == 1 && !visited[i][j]) {
                     q = new ArrayList<>();
-                    uniqueCoord = new HashSet<>();
+                    count = 0;
                     q.add(new Coordinate(i, j));
 
                     for (int x = 0; x < q.size(); x++) {
                         Coordinate curr = q.get(x);
-                        uniqueCoord.add(curr);
                         // visited? then skip
                         if (visited[curr.i][curr.j]) {
                             continue;
                         }
                         visited[curr.i][curr.j] = true;
+                        count++;
                         List<Coordinate> adjacentList = getAdjacent(curr, grid, n, m);
                         for (Coordinate adjacent: adjacentList) {
                             if (!visited[adjacent.i][adjacent.j]) {
@@ -77,8 +77,8 @@ public class GridRegions {
                     }
 
                     // found biggest region?
-                    if (uniqueCoord.size() > maxSize) {
-                        maxSize = uniqueCoord.size();
+                    if (count > maxSize) {
+                        maxSize = count;
                     }
                 }
             }
