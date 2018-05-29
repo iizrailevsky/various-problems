@@ -10,8 +10,10 @@ public class CountGridPathsTest {
 
     @Test
     public void testErrors() {
-        assertEquals(-1, CountGridPaths.countPaths(null));
-        assertEquals(-1, CountGridPaths.countPaths(new ArrayList<>(0)));
+        assertEquals(-1, CountGridPaths.countPaths(null, true));
+        assertEquals(-1, CountGridPaths.countPaths(new ArrayList<>(0), true));
+        assertEquals(-1, CountGridPaths.countPaths(null, false));
+        assertEquals(-1, CountGridPaths.countPaths(new ArrayList<>(0), false));
     }
 
     @Test
@@ -20,7 +22,8 @@ public class CountGridPathsTest {
         grid.add("0000");
         grid.add("0100");
         grid.add("0000");
-        assertEquals(4, CountGridPaths.countPaths(grid));
+        assertEquals(4, CountGridPaths.countPaths(grid, true));
+        assertEquals(4, CountGridPaths.countPaths(grid, false));
     }
 
     @Test
@@ -29,6 +32,7 @@ public class CountGridPathsTest {
         grid.add("0010");
         grid.add("0100");
         grid.add("0000");
-        assertEquals(2, CountGridPaths.countPaths(grid));
+        assertEquals(2, CountGridPaths.countPaths(grid, true));
+        assertEquals(2, CountGridPaths.countPaths(grid, false));
     }
 }
