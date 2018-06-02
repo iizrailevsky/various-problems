@@ -67,7 +67,7 @@ public class CountGridPaths {
 
         // compute pathCount based on varios paths forward
         pathCount[row][col] = countPathsRec(grid, N, M, row - 1, col, pathCount) +
-                          countPathsRec(grid, N, M, row, col + 1, pathCount);
+                          countPathsRec(grid, N, M, row, col + 1, pathCount)  % 1000003;
 
         return pathCount[row][col];
     }
@@ -101,7 +101,7 @@ public class CountGridPaths {
                     pathCount[row][col] = 0;
                 } else {
                     pathCount[row][col] = ((row - 1 >= 0) ? pathCount[row - 1][col] : 0) +
-                                          ((col + 1 < M) ? pathCount[row][col + 1] : 0);
+                                          ((col + 1 < M) ? pathCount[row][col + 1] : 0) % 1000003;
                 }
             }
         }
