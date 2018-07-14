@@ -20,8 +20,8 @@ public class CountWaysToProduceGivenAmountOfMoney {
         int[] dp = new int[cents + 1];
         dp[0] = 1;
         for (int x : new int[] {1, 5, 10, 25, 50}) {
-        	for (int i = 0; i + x <= cents; i++) {
-        		dp[i + x] += dp[i];
+        	for (int i = x; i <= cents; i++) {
+        		dp[i] = dp[i] + dp[i - x]; // count ways with the coin and without the coin
         	}
         }
         return dp[cents];
