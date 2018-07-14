@@ -53,10 +53,7 @@ public class LongestIncreasingSubsequenceDP {
 
         int n = a.length;
         int[] lis = new int[n];
-        // init lis DP array to 1
-        for (int i = 0; i < n; i++) {
-            lis[i] = 1;
-        }
+        lis[0] = 1;
 
         int maxLength = -1;
 
