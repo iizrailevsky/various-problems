@@ -10,19 +10,19 @@ public class ModifiedPalindromeTest {
 
     @Test
     public void testErrors() {
-        assertFalse(ModifiedPalindrome.isModifPalindrome(null, true));
+        assertFalse(ModifiedPalindrome.isModifPalindrome(null));
     }
 
     @Test
     public void testBasic() {
-        assertTrue(ModifiedPalindrome.isModifPalindrome("", true));
-        assertTrue(ModifiedPalindrome.isModifPalindrome("a", true));
-        assertTrue(ModifiedPalindrome.isModifPalindrome("aa", true));
-        assertTrue(ModifiedPalindrome.isModifPalindrome("ab", true));
-        assertTrue(ModifiedPalindrome.isModifPalindrome("racecar", true));
-        assertTrue(ModifiedPalindrome.isModifPalindrome("facecar", true));
-        assertTrue(ModifiedPalindrome.isModifPalindrome("bacadb", true));
-        assertTrue(ModifiedPalindrome.isModifPalindrome("bdacab", true));
-        assertFalse(ModifiedPalindrome.isModifPalindrome("abcde", true));
+        assertTrue(ModifiedPalindrome.isModifPalindrome(""));
+        assertTrue(ModifiedPalindrome.isModifPalindrome("a"));
+        assertTrue(ModifiedPalindrome.isModifPalindrome("aa"));
+        assertTrue(ModifiedPalindrome.isModifPalindrome("ab"));
+        assertTrue(ModifiedPalindrome.isModifPalindrome("racecar"));
+        assertTrue(ModifiedPalindrome.isModifPalindrome("facecar"));
+        assertTrue(ModifiedPalindrome.isModifPalindrome("bacadb"));
+        assertTrue(ModifiedPalindrome.isModifPalindrome("bdacab"));
+        assertFalse(ModifiedPalindrome.isModifPalindrome("abcde"));
     }
 }

@@ -2,9 +2,22 @@ package com.ilya.coding;
 
 public class ModifiedPalindrome {
 
-    // given a string s, find if it's a palindrome,
-    // with allowing one modification - replace / add / remove
-    public static boolean isModifPalindrome(String s, boolean isModifAllowed) {
+    /**
+     * Given a string s, find if it's a palindrome,
+     * with allowing one modification - replace / add / remove
+     * @param s
+     * @return
+     */
+    public static boolean isModifPalindrome(String s) {
+        // error checking
+        if (s == null) {
+            return false;
+        }
+
+        return isModifPalindrome(s, true);
+    }
+
+    private static boolean isModifPalindrome(String s, boolean isModifAllowed) {
         // error checking
         if (s == null) {
             return false;
