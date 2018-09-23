@@ -4,8 +4,8 @@ import java.util.*;
 
 public class TreePrintLevelOrder {
 
-    // returns list of elements in tree in zigzag / level order
-    public static List<Integer> getTreeZigZagOrder(Node node) {
+    // returns list of elements in tree in level order
+    public static List<Integer> getTreeLevelOrder(Node node) {
         // error checking
         if (node == null) {
             return Collections.EMPTY_LIST;

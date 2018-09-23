@@ -4,16 +4,16 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.*;
+import java.util.List;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
-public class TreePrintLevelOrderTest {
+public class TreePrintZigZagOrderTest {
 
     @Test
     public void testErrors() {
-        assertThat(Collections.EMPTY_LIST, is(TreePrintLevelOrder.getTreeLevelOrder(null)));
+        assertThat(Collections.EMPTY_LIST, is(TreePrintZigZagOrder.getTreeZigZagOrder(null)));
     }
 
     @Test
@@ -45,8 +45,8 @@ public class TreePrintLevelOrderTest {
         eleven.setRightChild(thirteen);
         twentySeven.setLeftChild(twentyFour);
 
-        List<Integer> expected = Arrays.asList(5, 4, 17, 3, 9, 11, 27, 1, 2, 7, 10, 13, 24);
-        assertThat(TreePrintLevelOrder.getTreeLevelOrder(five), is(expected));
+        List<Integer> expected = Arrays.asList(5, 17, 4, 3, 9, 11, 27, 24, 13, 10, 7, 2, 1);
+        assertThat(TreePrintZigZagOrder.getTreeZigZagOrder(five), is(expected));
     }
 
 }
