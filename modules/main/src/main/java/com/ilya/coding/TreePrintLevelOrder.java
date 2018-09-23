@@ -2,7 +2,7 @@ package com.ilya.coding;
 
 import java.util.*;
 
-public class TreePrintZigZag {
+public class TreePrintLevelOrder {
 
     // returns list of elements in tree in zigzag / level order
     public static List<Integer> getTreeZigZagOrder(Node node) {

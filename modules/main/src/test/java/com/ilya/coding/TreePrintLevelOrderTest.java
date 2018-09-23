@@ -9,11 +9,11 @@ import java.util.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 
-public class TreePrintZigZagTest {
+public class TreePrintLevelOrderTest {
 
     @Test
     public void testErrors() {
-        assertThat(Collections.EMPTY_LIST, is(TreePrintZigZag.getTreeZigZagOrder(null)));
+        assertThat(Collections.EMPTY_LIST, is(TreePrintLevelOrder.getTreeZigZagOrder(null)));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class TreePrintZigZagTest {
         twentySeven.setLeftChild(twentyFour);
 
         List<Integer> expected = Arrays.asList(5, 4, 17, 3, 9, 11, 27, 1, 2, 7, 10, 13, 24);
-        assertThat(TreePrintZigZag.getTreeZigZagOrder(five), is(expected));
+        assertThat(TreePrintLevelOrder.getTreeZigZagOrder(five), is(expected));
     }
 
 }
