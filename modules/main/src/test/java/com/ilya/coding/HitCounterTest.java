@@ -31,5 +31,15 @@ public class HitCounterTest {
         assertEquals(4, hc.getHits());
         Thread.sleep(1000);
         assertEquals(3, hc.getHits());
+        hc.hit();
+        assertEquals(4, hc.getHits());
+        Thread.sleep(1000);
+        hc.hit();
+        assertEquals(4, hc.getHits());
+        Thread.sleep(1000);
+        Thread.sleep(1000);
+        Thread.sleep(1000);
+        Thread.sleep(1000);
+        assertEquals(3, hc.getHits());
     }
 }

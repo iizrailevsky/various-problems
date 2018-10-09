@@ -28,6 +28,8 @@ public class HitCounter {
                 count++;
             }
         }
+        System.out.println("size: " + hits.size());
+        System.out.println("count: " + count);
         return count;
     }
 }
