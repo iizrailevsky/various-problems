@@ -11,19 +11,6 @@ public class PalindromePartitioning {
 
         List<List<String>> res = new ArrayList();
 
-        // one char palindrome?
-        if (s.length() == 1) {
-            res.add(new ArrayList() {{ add(s); }});
-            return res;
-        } else if (s.length() == 2) {
-            if (s.charAt(0) == s.charAt(1)) {
-                res.add(new ArrayList() {{ add(s); }});
-            }
-            res.add(new ArrayList() {{ add(Character.toString(s.charAt(0)));
-                add(Character.toString(s.charAt(1))); }});
-            return res;
-        }
-
         // try the rest of string
         for (int i = 1; i <= s.length(); i++) {
             String start = s.substring(0, i);
