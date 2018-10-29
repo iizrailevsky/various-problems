@@ -14,6 +14,8 @@ public class ArithmeticSlicesTest {
 
     @Test
     public void testBasic() {
+
         assertEquals(7, ArithmeticSlices.numberOfArithmeticSlices(new int[] {2, 4, 6, 8, 10}));
+        //assertEquals(2, ArithmeticSlices.numberOfArithmeticSlices(new int[] {2, 2, 3, 4}));
     }
 }
