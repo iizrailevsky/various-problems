@@ -34,6 +34,9 @@ public class BinaryContiguousArray {
             }
         }
 
+        System.out.println(Arrays.toString(counts));
+        System.out.println(sumToIndex.toString());
+
         return maxLength;
     }
 
