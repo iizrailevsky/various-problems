@@ -97,6 +97,7 @@ public class ListIntersectionUnion {
         if (j < b.size()) {
             while (j < b.size()) {
                 o.add(b.get(j));
+                j++;
             }
         }
 
