@@ -26,4 +26,34 @@ public class PrimeNumbers {
          }
          return result;
     }
+
+	/**
+	 * Prints n prime numbers, starting from 2
+	 * @param n Number of primes to print
+	 */
+	public static void printNPrimes(int n) {
+    	// error checking
+		if (n <= 0) {
+			return;
+		}
+
+		for (int num = 2; n > 0; num++) {
+			boolean isPrime = true;
+			for (int i = 2; i <= num/2; i++) {
+				if (num % i == 0) {
+					isPrime = false;
+					break;
+				}
+			}
+
+			if (isPrime) {
+				System.out.println(num);
+				n--;
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		printNPrimes(10);
+	}
 }
