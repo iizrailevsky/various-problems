@@ -1,0 +1,9 @@
+[
+     {"symbol": "FB", "side": "buy", "quantity": 1, "price": 200.00},
+     {"symbol": "AAPL", "side": "buy", "quantity": 2, "price": 100.00},
+     {"symbol": "FB", "side": "sell", "quantity": 1, "price": 150.00},
+     {"symbol": "AAPL", "side": "buy", "quantity": 1, "price": 150.00},
+     {"symbol": "AAPL", "side": "sell", "quantity": 1, "price": 200.00},
+     {"symbol": "AAPL", "side": "buy", "quantity": 4, "price": 210.00},
+     {"symbol": "AAPL", "side": "sell", "quantity": 4, "price": 220.00}
+]
