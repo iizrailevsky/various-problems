@@ -4,7 +4,6 @@ import java.io.*;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.fasterxml.jackson.
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
@@ -72,36 +71,36 @@ public class TransactionsTaxGainLoss {
             Transaction trans = transactions.poll();
             // buy transaction
             if (trans.isBuy()) {
-                Queue<Transaction> q = transMap.get(trans.symbol);
+                Queue<Transaction> q = transMap.get(trans.getSymbol());
                 if (q == null) {
                     q = new LinkedList();
-                    transMap.put(trans.symbol, q);
+                    transMap.put(trans.getSymbol(), q);
                 }
                 q.add(trans);
             } else {
                 // sell transaction
-                Queue<Transaction> q = transMap.get(trans.symbol);
-                int sellQuantity = trans.quantity;
+                Queue<Transaction> q = transMap.get(trans.getSymbol());
+                int sellQuantity = trans.getQuantity();
                 while (sellQuantity > 0) {
                     if (!q.isEmpty()) {
                         Transaction buyTrans = q.peek();
-                        if (buyTrans.quantity >= sellQuantity) {
+                        if (buyTrans.getQuantity() >= sellQuantity) {
                             // gen gain/loss
                             CapitalGain capGain = new CapitalGain();
-                            capGain.symbol = trans.symbol;
-                            capGain.quantity = sellQuantity;
-                            buyTrans.quantity -= sellQuantity;
-                            capGain.capitalGain = capGain.quantity * (trans.price - buyTrans.price);
+                            capGain.setSymbol(trans.getSymbol());
+                            capGain.setQuantity(sellQuantity);
+                            buyTrans.setQuantity(buyTrans.getQuantity() - sellQuantity);
+                            capGain.setCapitalGain(capGain.getQuantity() * (trans.getPrice() - buyTrans.getPrice()));
                             res.add(capGain);
                             sellQuantity = 0;
                         } else {
                             // gen gain/loss
                             CapitalGain capGain = new CapitalGain();
-                            capGain.symbol = trans.symbol;
-                            capGain.quantity = buyTrans.quantity;
-                            capGain.capitalGain = capGain.quantity * (trans.price - buyTrans.price);
+                            capGain.setSymbol(trans.getSymbol());
+                            capGain.setQuantity(buyTrans.getQuantity());
+                            capGain.setCapitalGain(capGain.getQuantity() * (trans.getPrice() - buyTrans.getPrice()));
                             res.add(capGain);
-                            sellQuantity -= buyTrans.quantity;
+                            sellQuantity -= buyTrans.getQuantity();
                             // done with buy transaction - poll and remove it
                             q.poll();
                         }
@@ -115,6 +114,7 @@ public class TransactionsTaxGainLoss {
 
 
     public static void main(String[] args) throws IOException {
+        // load input transaction
         ObjectMapper objectMapper = new ObjectMapper();
         List<Transaction> transactionList =
                 objectMapper.readValue(new File("modules/main/src/main/resources/transactions.json"),
@@ -123,6 +123,8 @@ public class TransactionsTaxGainLoss {
         for (Transaction t : transactionList) {
             q.add(t);
         }
+
+        // output result
         List<CapitalGain> capitalGainList = new TransactionsTaxGainLoss().processTransactions(q);
         ObjectMapper objectMapperOut = new ObjectMapper();
         objectMapperOut.writeValue(new File("modules/main/src/main/resources/transactions-out.json"),
@@ -131,11 +133,10 @@ public class TransactionsTaxGainLoss {
 }
 
 class Transaction {
-    protected String symbol;
-    protected String side;
-    protected boolean isBuy;
-    protected int quantity;
-    protected double price;
+    private String symbol;
+    private String side;
+    private int quantity;
+    private double price;
 
     public String getSymbol() {
         return symbol;
@@ -157,10 +158,6 @@ class Transaction {
         return side.equalsIgnoreCase("buy");
     }
 
-    public void setBuy(boolean buy) {
-        isBuy = buy;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -179,9 +176,9 @@ class Transaction {
 }
 
 class CapitalGain {
-    protected String symbol;
-    protected int quantity;
-    protected double capitalGain;
+    private String symbol;
+    private int quantity;
+    private double capitalGain;
 
     public String getSymbol() {
         return symbol;
