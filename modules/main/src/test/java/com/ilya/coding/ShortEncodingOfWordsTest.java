@@ -12,6 +12,7 @@ public class ShortEncodingOfWordsTest {
         ShortEncodingOfWords.minimumLengthEncoding(null);
     }
 
+    
     @Test
     public void testBasic() {
        assertEquals(10, ShortEncodingOfWords.minimumLengthEncoding(new String[] {"time", "me", "bell"}));
