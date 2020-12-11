@@ -85,6 +85,7 @@ public class TransactionsTaxGainLoss {
                     if (!q.isEmpty()) {
                         Transaction buyTrans = q.peek();
                         if (buyTrans.getQuantity() >= sellQuantity) {
+                            CapitalGain capGain = new CapitalGain();
                             capGain.setSymbol(trans.getSymbol());
                             capGain.setQuantity(sellQuantity);
                             buyTrans.setQuantity(buyTrans.getQuantity() - sellQuantity);
