@@ -2,9 +2,9 @@ package com.ilya.coding;
 
 import java.io.*;
 
-//import com.fasterxml.jackson.core.type.TypeReference;
-//import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.*;
 
 /** Problem:
@@ -113,18 +113,18 @@ public class TransactionsTaxGainLoss {
 
 
     public static void main(String[] args) throws IOException {
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        List<Transaction> transactionList =
-//                objectMapper.readValue(new File("modules/main/src/main/resources/transactions.json"),
-//                        new TypeReference<List<Transaction>>(){});
-//        Queue<Transaction> q = new LinkedList<>();
-//        for (Transaction t : transactionList) {
-//            q.add(t);
-//        }
-//        List<CapitalGain> capitalGainList = new TransactionsTaxGainLoss().processTransactions(q);
-//        ObjectMapper objectMapperOut = new ObjectMapper();
-//        objectMapperOut.writeValue(new File("modules/main/src/main/resources/transactions-out.json"),
-//                capitalGainList);
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<Transaction> transactionList =
+                objectMapper.readValue(new File("modules/main/src/main/resources/transactions.json"),
+                        new TypeReference<List<Transaction>>(){});
+        Queue<Transaction> q = new LinkedList<>();
+        for (Transaction t : transactionList) {
+            q.add(t);
+        }
+        List<CapitalGain> capitalGainList = new TransactionsTaxGainLoss().processTransactions(q);
+        ObjectMapper objectMapperOut = new ObjectMapper();
+        objectMapperOut.writeValue(new File("modules/main/src/main/resources/transactions-out.json"),
+                capitalGainList);
     }
 }
 
