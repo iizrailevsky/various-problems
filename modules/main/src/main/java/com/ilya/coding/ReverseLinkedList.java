@@ -15,14 +15,14 @@ public class ReverseLinkedList {
         }
 
         // init variables
-        ListNode prev = null, cur = head, next = null;
+        ListNode prev = null;
+        ListNode cur;
 
-        // go over list and reverse
-        while (cur != null) {
-            next = cur.next;
-            cur.next = prev;
+        while (head != null) {
+            cur = head;
+            head = head.next;
+            cur = cur.next;
             prev = cur;
-            cur = next;
         }
 
         return prev;
