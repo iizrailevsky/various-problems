@@ -6,27 +6,7 @@ import java.util.*;
 public class GraphBFS {
 
     private static final int DEFAULT_LENGTH = 6;
-
-    private Map<Integer, GraphNode> nodeLookup = new HashMap<>();
-
-    private static class GraphNode {
-        private int id;
-        LinkedList<GraphNode> adjacent = new LinkedList<>();
-        private GraphNode (int id) {
-            this.id = id;
-        }
-    }
-
-    private GraphNode getNode (int id) {
-        return this.nodeLookup.get(id);
-    }
-
-    public void addEdge(int source, int destination) {
-        GraphNode s = getNode(source);
-        GraphNode d = getNode(destination);
-        s.adjacent.add(d);
-        d.adjacent.add(s);
-    }
+    protected Graph graph;
 
     /**
      * Returns all the distance between source and other reachable node if found,
@@ -35,7 +15,7 @@ public class GraphBFS {
      * @return distances if found, -1 otherwise
      */
     public Map<Integer, Integer> getAllDistnancesBFS(int source) {
-        return getAllDistnancesBFS(getNode(source));
+        return getAllDistnancesBFS(graph.getNode(source));
     }
 
     /**
@@ -93,10 +73,12 @@ public class GraphBFS {
             int n = Integer.parseInt(nm[0]);
             int m = Integer.parseInt(nm[1]);
 
-            GraphBFS graph = new GraphBFS();
+            GraphBFS graphBFS = new GraphBFS();
+            Graph graph = new Graph();
+            graphBFS.graph = graph;
             // create nodes
             for (int ni = 1; ni <= n; ni++) {
-                graph.nodeLookup.putIfAbsent(ni, new GraphNode(ni));
+                graph.putIfAbsent(ni, new GraphNode(ni));
             }
             // create edges
             for (int mi = 1; mi <= m; mi++) {
@@ -109,7 +91,7 @@ public class GraphBFS {
             // get starting node
             int s = scanner.nextInt();
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-            Map<Integer, Integer> distances = graph.getAllDistnancesBFS(s);
+            Map<Integer, Integer> distances = graphBFS.getAllDistnancesBFS(s);
             StringJoiner sj = new StringJoiner(" ");
             // print distances from start to all other nodes
             for (int i = 1; i <= n; i++) {
