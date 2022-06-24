@@ -19,13 +19,8 @@ public class SmallerNumbersThanCurrent {
         int n = numsCopy.length;
         Map<Integer, Integer> numToCountMap = new HashMap<>();
         for (int i = n - 1; i >= 0; i--) {
-            if (!numToCountMap.containsKey(numsCopy[i])) {
-                // add num and index initially
-                numToCountMap.put(numsCopy[i], i);
-            } else {
-                // for each duplicate number, decrement by 1
-                numToCountMap.put(numsCopy[i], numToCountMap.get(numsCopy[i]) - 1);
-            }
+            // add num and index
+            numToCountMap.put(numsCopy[i], i);
         }
 
         // populate the output array
