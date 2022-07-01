@@ -15,7 +15,7 @@ public class MatrixRangeSum {
 
     private int[][] m;
 
-    public NumMatrix(int[][] matrix) {
+    public MatrixRangeSum(int[][] matrix) {
         int rN = matrix.length;
         int cN = matrix[0].length;
 
